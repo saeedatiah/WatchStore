@@ -1,0 +1,33 @@
+﻿@page "/product/{id:int}"
+@inject ProductSevice productSevice
+
+<div class="card">
+    <div class="d-flex justify-content-center p-2">
+        @*<img src="@product.ImgUrl" />*@
+        <h5 class="card-title">@_product.ImgUrl</h5>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">@_product.Name</h5>
+        <p class="card-text">@_product.Description</p>
+        <p class="text-secondary text-center h2 font-weight-bold">
+            @_product.Price.ToString("C")
+        </p>
+        <p>
+            @((MarkupString)_product.Specifications)
+        </p>
+        <a href="#" class="btn btn-danger w-100"><i class=""></i> Add to card</a>
+    </div>
+</div>
+
+
+@code {
+    Product _product = null;
+    protected override void OnInitialized()
+    {
+        _product = productSevice.GetProduct(Id);
+        base.OnInitialized();
+    }
+    [Parameter]
+    public int Id { get; set; }
+
+}

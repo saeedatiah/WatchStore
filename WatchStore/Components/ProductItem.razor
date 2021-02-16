@@ -1,0 +1,25 @@
+﻿<div class="col-sm-4 p-2">
+    <div class="card">
+        <div class="d-flex justify-content-center p-2">
+            @*<img src="@product.ImgUrl" />*@
+            <h5 class="card-title">@Product.ImgUrl</h5>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                <a href="/product/@Product.Id">@Product.Name</a></h5>
+            <p class="card-text">@Product.Description</p>
+            <p class="text-secondary text-center h2 font-weight-bold">
+                @Product.Price.ToString("C")
+            </p>
+            <a href="#" class="btn btn-danger w-100"><i class=""></i> Add to card</a>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Product Product { get; set; }
+  
+
+
+}
